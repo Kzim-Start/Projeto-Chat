@@ -1,0 +1,12 @@
+.godot/
+exports/
+builds/
+.DS_Store
+*.tmp
+*.log
+*.keystore
+*.jks
+export_credentials.cfg
+.env
+.env.*
+!.env.example
