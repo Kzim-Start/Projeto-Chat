@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://resources/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://resources/loot_table_data.gd" id="2"]
+
+[sub_resource type="Resource" id="Loot"]
+script = ExtResource("2")
+id = &"desert_normal"
+coin_drop_id = &"normal"
+mana_orb_chance = 0.1
+
+[resource]
+script = ExtResource("1")
+id = &"desert_crawler"
+name_key = &"ENEMY_DESERT_CRAWLER"
+max_hp = 3.0
+damage = 1.0
+speed = 70.0
+attack_range = 24.0
+attack_interval = 1.0
+enemy_type = 0
+loot_table = SubResource("Loot")
+biome = &"desert"
+difficulty_cost = 1

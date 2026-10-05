@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EconomyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/economy_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+fire_mage_price = 500
+lightning_mage_price = 1500
+phase_rewards = Dictionary[StringName, int]({&"desert": 200})
+shop_prices = Dictionary[StringName, int]({&"health_potion": 20, &"mana_potion": 15})
+permanent_upgrade_costs = Dictionary[StringName, int]({&"max_hp_1": 100})
+coin_drop_values = Dictionary[StringName, int]({&"normal": 2, &"elite": 10, &"boss": 30})

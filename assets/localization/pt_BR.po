@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Language: pt_BR\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "GAME_TITLE"
+msgstr "CRIMSON MAGE"
+
+msgid "BOOT_LOADING"
+msgstr "Despertando as brasas…"
+
+msgid "BOOT_ERROR"
+msgstr "Não foi possível iniciar. Confira os dados do projeto e reinicie."
+
+msgid "FOUNDATION_BUILD"
+msgstr "BASE DO PROJETO / SEÇÕES 0–10"
+
+msgid "FOUNDATION_DESCRIPTION"
+msgstr "Um roguelite de ação e fantasia sombria, offline. Esta versão estabelece a engine, as definições dos personagens e a localização."
+
+msgid "FOUNDATION_NOTICE"
+msgstr "Base em desenvolvimento. Combate, compras e runs não estão implementados nesta etapa."
+
+msgid "MAGE_STARTER"
+msgstr "Mago inicial"
+
+msgid "MAGE_LOCKED_PRICE"
+msgstr "Bloqueado · {price} moedas permanentes"
+
+msgid "MAGE_SUMMARY"
+msgstr "{mage} — {status}"
+
+msgid "MAGE_ICE_NAME"
+msgstr "Mago de Gelo"
+
+msgid "MAGE_ICE_DESCRIPTION"
+msgstr "Controle o campo de batalha com magia congelante."
+
+msgid "MAGE_FIRE_NAME"
+msgstr "Mago de Fogo"
+
+msgid "MAGE_FIRE_DESCRIPTION"
+msgstr "Consuma grupos de inimigos com chamas poderosas."
+
+msgid "MAGE_LIGHTNING_NAME"
+msgstr "Mago de Raio"
+
+msgid "MAGE_LIGHTNING_DESCRIPTION"
+msgstr "Ataque rapidamente com magia elétrica."
+
+msgid "ENEMY_DESERT_CRAWLER"
+msgstr "Rastejante das Dunas"

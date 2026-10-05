@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameCatalog" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://resources/game_catalog.gd" id="1"]
+[ext_resource type="Script" path="res://resources/mage_data.gd" id="2"]
+[ext_resource type="Script" path="res://resources/enemy_data.gd" id="3"]
+[ext_resource type="Resource" path="res://data/characters/ice_mage.tres" id="4"]
+[ext_resource type="Resource" path="res://data/characters/fire_mage.tres" id="5"]
+[ext_resource type="Resource" path="res://data/characters/lightning_mage.tres" id="6"]
+[ext_resource type="Resource" path="res://data/enemies/desert_crawler.tres" id="7"]
+[ext_resource type="Resource" path="res://data/economy/default_economy.tres" id="8"]
+
+[resource]
+script = ExtResource("1")
+mages = Array[ExtResource("2")]([ExtResource("4"), ExtResource("5"), ExtResource("6")])
+enemies = Array[ExtResource("3")]([ExtResource("7")])
+economy = ExtResource("8")

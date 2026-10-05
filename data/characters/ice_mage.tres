@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/mage_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"ice"
+name_key = &"MAGE_ICE_NAME"
+description_key = &"MAGE_ICE_DESCRIPTION"
+max_hp = 8
+max_shield = 5
+max_mana = 100.0
+move_speed = 180.0
+attack_damage = 1.0
+attack_cost = 10.0
+attack_speed = 2.0
+skill_cooldown = 8.0
+dash_cooldown = 1.2
+element = 0
+unlocked_by_default = true

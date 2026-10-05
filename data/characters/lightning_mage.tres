@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/mage_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"lightning"
+name_key = &"MAGE_LIGHTNING_NAME"
+description_key = &"MAGE_LIGHTNING_DESCRIPTION"
+max_hp = 8
+max_shield = 5
+max_mana = 100.0
+move_speed = 190.0
+attack_damage = 0.8
+attack_cost = 8.0
+attack_speed = 3.0
+skill_cooldown = 7.0
+dash_cooldown = 1.2
+element = 2

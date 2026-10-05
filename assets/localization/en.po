@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "GAME_TITLE"
+msgstr "CRIMSON MAGE"
+
+msgid "BOOT_LOADING"
+msgstr "Awakening the embers…"
+
+msgid "BOOT_ERROR"
+msgstr "Unable to start. Check the project data and restart."
+
+msgid "FOUNDATION_BUILD"
+msgstr "FOUNDATION / SECTIONS 0–10"
+
+msgid "FOUNDATION_DESCRIPTION"
+msgstr "An offline dark-fantasy action roguelite. This build establishes the engine, character definitions and localization."
+
+msgid "FOUNDATION_NOTICE"
+msgstr "Development foundation. Combat, purchases and runs are not implemented in this stage."
+
+msgid "MAGE_STARTER"
+msgstr "Starting mage"
+
+msgid "MAGE_LOCKED_PRICE"
+msgstr "Locked · {price} Saved Coins"
+
+msgid "MAGE_SUMMARY"
+msgstr "{mage} — {status}"
+
+msgid "MAGE_ICE_NAME"
+msgstr "Ice Mage"
+
+msgid "MAGE_ICE_DESCRIPTION"
+msgstr "Control the battlefield with freezing magic."
+
+msgid "MAGE_FIRE_NAME"
+msgstr "Fire Mage"
+
+msgid "MAGE_FIRE_DESCRIPTION"
+msgstr "Consume groups of enemies with powerful flames."
+
+msgid "MAGE_LIGHTNING_NAME"
+msgstr "Lightning Mage"
+
+msgid "MAGE_LIGHTNING_DESCRIPTION"
+msgstr "Strike swiftly with electric magic."
+
+msgid "ENEMY_DESERT_CRAWLER"
+msgstr "Dune Crawler"
