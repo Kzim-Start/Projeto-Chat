@@ -4,7 +4,7 @@
 Foundation — escopo autorizado: seções 0–10 do documento mestre.
 
 ## CURRENT STAGE
-Checkpoint 2: seção 10 integrada — idioma imediato e persistente.
+Checkpoint final 0–10: implementação integrada, testes Linux headless aprovados e documentação de continuidade pronta. QA visual/mobile pendente.
 
 ## COMPLETED
 - Repositório original inspecionado; continha somente README.
@@ -21,10 +21,10 @@ Checkpoint 2: seção 10 integrada — idioma imediato e persistente.
 - Reabertura em processos novos confirmou ambas as preferências salvas.
 
 ## CURRENTLY WORKING
-- Revisão final, documentação de execução/QA e fechamento do intervalo autorizado.
+- Nenhuma seção posterior iniciada. Escopo autorizado encerrado; aguardando próxima instrução.
 
 ## WORKING FEATURES
-- Projeto abre pelo `project.godot` e executa com F6/F5 no Godot.
+- Projeto importável pelo `project.godot`; fluxo principal executado via boot (F5 no editor).
 - Catálogo integrado à tela de foundation (não é seleção de mago nem compra).
 - Suite nativa de testes, executável offline.
 - Português/inglês com alteração imediata de rótulos, cartões e mensagens.
@@ -49,6 +49,7 @@ Checkpoint 2: seção 10 integrada — idioma imediato e persistente.
 
 ## SAVE SYSTEM STATUS
 - PermanentSave, RunSave e banking não implementados nesta etapa.
+- Apenas preferências: `user://settings.cfg`, schema 1, backup e promoção de temporário. Sem carteiras, inventário ou progressão salva.
 
 ## LOCALIZATION STATUS
 - pt_BR/en integrados; chaves, conteúdo não vazio e placeholders conferidos automaticamente.
@@ -68,6 +69,7 @@ iOS: NOT TESTED.
 - Boot executado até a foundation sem erros de script/runtime.
 - Cobertura: dados, referências, traduções, preferências, recuperação, escrita inválida, navegação real e geometria de UI em cinco tamanhos de janela.
 - Geometria headless não substitui inspeção visual ou teste de toque em aparelho.
+- Relatório e comandos de reprodução: `docs/QA_0_10.md`.
 
 ## NEXT STEP
-Finalizar documentação e revisão do checkpoint 0–10, sem iniciar a seção 11.
+Na próxima autorização, definir o próximo intervalo/bloco. A seção 11 inicia o fluxo final do jogo; o desenvolvimento posterior deve chegar ao controle do Mago de Gelo e uma sala de combate antes de expandir conteúdo. Não confundir esse próximo trabalho com algo já entregue.
