@@ -31,4 +31,7 @@ func validate() -> PackedStringArray:
 		errors.append("Mage attack cost exceeds its mana capacity: %s" % id)
 	if skill_cooldown <= 0.0 or dash_cooldown <= 0.0 or element not in [0, 1, 2]:
 		errors.append("Mage cooldown or element is invalid: %s" % id)
+	for value: float in [max_mana, move_speed, attack_damage, attack_cost, attack_speed, skill_cooldown, dash_cooldown]:
+		if not is_finite(value):
+			errors.append("Mage values must be finite: %s" % id)
 	return errors

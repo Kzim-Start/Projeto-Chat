@@ -50,3 +50,39 @@ msgstr "Strike swiftly with electric magic."
 
 msgid "ENEMY_DESERT_CRAWLER"
 msgstr "Dune Crawler"
+
+msgid "MAGE_STATS"
+msgstr "HP {hp} · Shield {shield}\nMana {mana}"
+
+msgid "MENU_SETTINGS"
+msgstr "Settings"
+
+msgid "MENU_BACK"
+msgstr "Back"
+
+msgid "SETTINGS_LANGUAGE"
+msgstr "Language"
+
+msgid "LANG_PT_BR"
+msgstr "Português do Brasil"
+
+msgid "LANG_EN"
+msgstr "English"
+
+msgid "SETTINGS_CURRENT_LANGUAGE"
+msgstr "Current language: {language}"
+
+msgid "SETTINGS_AUTO_NOTICE"
+msgstr "The first launch uses your device language. Changes apply immediately and are saved on this device."
+
+msgid "SETTINGS_SAVED"
+msgstr "Language saved. No restart needed."
+
+msgid "SETTINGS_RECOVERED"
+msgstr "Your language was recovered from the settings backup."
+
+msgid "SETTINGS_SAVE_ERROR"
+msgstr "Could not save the language. Check available storage and try again."
+
+msgid "NAVIGATION_ERROR"
+msgstr "Could not open the screen. Please try again."

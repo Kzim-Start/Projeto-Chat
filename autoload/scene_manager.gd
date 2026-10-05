@@ -1,8 +1,9 @@
 extends Node
 
-enum Page { FOUNDATION }
+enum Page { FOUNDATION, SETTINGS }
 const SCENES: Dictionary[int, String] = {
 	Page.FOUNDATION: "res://scenes/menus/foundation.tscn",
+	Page.SETTINGS: "res://scenes/menus/settings.tscn",
 }
 var is_transitioning: bool = false
 

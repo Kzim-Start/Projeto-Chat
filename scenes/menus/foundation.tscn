@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/foundation.gd" id="1"]
+[ext_resource type="Theme" path="res://assets/ui/foundation_theme.tres" id="2"]
 
 [node name="Foundation" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2")
 script = ExtResource("1")
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -19,43 +21,65 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 36
+theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 36
+theme_override_constants/margin_bottom = 32
 
-[node name="Content" type="VBoxContainer" parent="Margin"]
+[node name="Scroll" type="ScrollContainer" parent="Margin"]
 layout_mode = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="Content" type="VBoxContainer" parent="Margin/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 24
 
-[node name="Title" type="Label" parent="Margin/Content"]
+[node name="Build" type="Label" parent="Margin/Scroll/Content"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.78, 0.53, 1)
-theme_override_font_sizes/font_size = 44
-text = "GAME_TITLE"
-
-[node name="Build" type="Label" parent="Margin/Content"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.71, 0.48, 0.45, 1)
+theme_override_font_sizes/font_size = 17
 text = "FOUNDATION_BUILD"
 
-[node name="Description" type="Label" parent="Margin/Content"]
+[node name="Title" type="Label" parent="Margin/Scroll/Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.95, 0.78, 0.53, 1)
+theme_override_font_sizes/font_size = 48
+text = "GAME_TITLE"
+
+[node name="Description" type="Label" parent="Margin/Scroll/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
 text = "FOUNDATION_DESCRIPTION"
 autowrap_mode = 2
 
-[node name="MageList" type="VBoxContainer" parent="Margin/Content"]
+[node name="MageList" type="HBoxContainer" parent="Margin/Scroll/Content"]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Spacer" type="Control" parent="Margin/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Notice" type="Label" parent="Margin/Content"]
+[node name="Footer" type="HBoxContainer" parent="Margin/Scroll/Content"]
 layout_mode = 2
+
+[node name="Notice" type="Label" parent="Margin/Scroll/Content/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.65, 0.66, 0.72, 1)
 theme_override_font_sizes/font_size = 18
 text = "FOUNDATION_NOTICE"
+autowrap_mode = 2
+
+[node name="Settings" type="Button" parent="Margin/Scroll/Content/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(240, 60)
+text = "MENU_SETTINGS"
+
+[node name="Error" type="Label" parent="Margin/Scroll/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.58, 0.5, 1)
+theme_override_font_sizes/font_size = 18
 autowrap_mode = 2

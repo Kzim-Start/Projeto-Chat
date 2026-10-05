@@ -4,7 +4,7 @@
 Foundation — escopo autorizado: seções 0–10 do documento mestre.
 
 ## CURRENT STAGE
-Checkpoint 1: base Godot, catálogo de dados e boot integrados.
+Checkpoint 2: seção 10 integrada — idioma imediato e persistente.
 
 ## COMPLETED
 - Repositório original inspecionado; continha somente README.
@@ -15,14 +15,20 @@ Checkpoint 1: base Godot, catálogo de dados e boot integrados.
 - Gelo inicial; Fogo/Raio bloqueados nas definições, com preços 500/1.500.
 - Boot conectado à tela de foundation; navegação protegida contra destinos inválidos e cliques repetidos.
 - Catálogos de tradução pt_BR/en já carregados pela engine.
+- Detecção inicial do idioma do aparelho; português mapeado para pt_BR e demais idiomas para en.
+- Configurações com seleção de idioma, atualização imediata, persistência e retorno à foundation.
+- Preferências com arquivo temporário, backup válido, validação de schema e erros de gravação tratados.
+- Reabertura em processos novos confirmou ambas as preferências salvas.
 
 ## CURRENTLY WORKING
-- Detecção/persistência de idioma e tela de configurações da seção 10.
+- Revisão final, documentação de execução/QA e fechamento do intervalo autorizado.
 
 ## WORKING FEATURES
 - Projeto abre pelo `project.godot` e executa com F6/F5 no Godot.
 - Catálogo integrado à tela de foundation (não é seleção de mago nem compra).
 - Suite nativa de testes, executável offline.
+- Português/inglês com alteração imediata de rótulos, cartões e mensagens.
+- Preferências locais independentes dos futuros saves de progresso.
 
 ## KNOWN BUGS
 - Nenhum erro de parsing/runtime nos testes executados. Validação visual e mobile ainda pendentes.
@@ -45,7 +51,8 @@ Checkpoint 1: base Godot, catálogo de dados e boot integrados.
 - PermanentSave, RunSave e banking não implementados nesta etapa.
 
 ## LOCALIZATION STATUS
-- pt_BR/en importados e chaves conferidas. Detecção explícita, troca manual e persistência em implementação.
+- pt_BR/en integrados; chaves, conteúdo não vazio e placeholders conferidos automaticamente.
+- Detecção inicial, troca manual, gravação e reabertura em outro processo: PASS no Linux.
 
 ## LAST TESTED BUILD
 Godot Version: 4.5.2.stable.official.6ce3de25a.
@@ -56,8 +63,11 @@ iOS: NOT TESTED.
 
 ## LAST TEST RESULTS
 - Conferência documental: repositório correto e escopo definidos.
-- 43 verificações automatizadas: PASS; 0 falhas.
-- Testes: validação de dados, IDs duplicados, preços, isolamento de Resources, traduções e navegação real de cena.
+- 205 verificações automatizadas: PASS; 0 falhas.
+- 6 probes em processos independentes: PASS (reset isolado, primeira abertura, gravação/leitura de pt_BR e en).
+- Boot executado até a foundation sem erros de script/runtime.
+- Cobertura: dados, referências, traduções, preferências, recuperação, escrita inválida, navegação real e geometria de UI em cinco tamanhos de janela.
+- Geometria headless não substitui inspeção visual ou teste de toque em aparelho.
 
 ## NEXT STEP
-Concluir seção 10, ampliar testes, revisar e salvar checkpoint final 0–10.
+Finalizar documentação e revisão do checkpoint 0–10, sem iniciar a seção 11.

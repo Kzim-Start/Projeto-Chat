@@ -24,6 +24,9 @@ func validate() -> PackedStringArray:
 		errors.append("Enemy attack or difficulty cost is invalid: %s" % id)
 	if enemy_type not in [0, 1, 2, 3]:
 		errors.append("Enemy type is invalid: %s" % id)
+	for value: float in [max_hp, damage, speed, attack_range, attack_interval]:
+		if not is_finite(value):
+			errors.append("Enemy values must be finite: %s" % id)
 	if loot_table == null:
 		errors.append("Enemy loot table is missing: %s" % id)
 	else:

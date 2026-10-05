@@ -11,6 +11,6 @@ func validate() -> PackedStringArray:
 	var errors := PackedStringArray()
 	if id.is_empty() or coin_drop_id.is_empty():
 		errors.append("Loot table ID and economy drop ID are required.")
-	if mana_orb_chance < 0.0 or mana_orb_chance > 1.0:
+	if not is_finite(mana_orb_chance) or mana_orb_chance < 0.0 or mana_orb_chance > 1.0:
 		errors.append("Loot probability must be between zero and one.")
 	return errors

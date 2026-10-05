@@ -1,23 +1,21 @@
 extends Control
 
-@onready var mage_list: VBoxContainer = %MageList
+const MAGE_CARD := preload("res://scenes/ui/mage_card.tscn")
 
 
 func _ready() -> void:
 	for mage in GameManager.CATALOG.mages:
-		var row := Label.new()
-		row.name = String(mage.id)
-		row.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		mage_list.add_child(row)
-	_refresh_text()
+		var card := MAGE_CARD.instantiate()
+		card.name = String(mage.id)
+		card.configure(mage, GameManager.CATALOG.economy)
+		%MageList.add_child(card)
+	%Settings.pressed.connect(_open_settings)
+	%Settings.grab_focus()
+	%Error.visible = SettingsManager.last_error != OK
+	%Error.text = "SETTINGS_SAVE_ERROR"
 
 
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_TRANSLATION_CHANGED and is_node_ready():
-		_refresh_text()
-
-
-func _refresh_text() -> void:
-	for mage in GameManager.CATALOG.mages:
-		var status: String = tr("MAGE_STARTER") if mage.unlocked_by_default else tr("MAGE_LOCKED_PRICE").format({"price": GameManager.CATALOG.economy.get_mage_price(mage.id)})
-		mage_list.get_node(String(mage.id)).text = tr("MAGE_SUMMARY").format({"mage": tr(mage.name_key), "status": status})
+func _open_settings() -> void:
+	if SceneManager.navigate_to(SceneManager.Page.SETTINGS) != OK:
+		%Error.text = "NAVIGATION_ERROR"
+		%Error.show()
