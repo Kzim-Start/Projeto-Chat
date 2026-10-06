@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/stage_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"heaven"
+name_key = &"STAGE_HEAVEN"
+description_key = &"STAGE_HEAVEN_DESC"
+prerequisite = &"grail"
+map_position = Vector2(0.77, 0.26)
+accent = Color(0.79, 0.76, 0.60, 1)

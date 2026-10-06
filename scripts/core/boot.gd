@@ -9,5 +9,5 @@ func _start() -> void:
 	if not GameManager.is_catalog_ready():
 		$Status.text = "BOOT_ERROR"
 		return
-	if SceneManager.navigate_to(SceneManager.Page.FOUNDATION) != OK:
+	if SceneManager.navigate_to(SceneManager.Page.MAIN_MENU) != OK:
 		$Status.text = "BOOT_ERROR"

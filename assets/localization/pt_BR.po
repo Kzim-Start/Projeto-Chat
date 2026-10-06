@@ -86,3 +86,198 @@ msgstr "Não foi possível salvar o idioma. Verifique o espaço disponível e te
 
 msgid "NAVIGATION_ERROR"
 msgstr "Não foi possível abrir a tela. Tente novamente."
+
+msgid "GAME_TITLE_STACKED"
+msgstr "CRIMSON\nMAGE"
+
+msgid "MENU_EYEBROW"
+msgstr "UMA JORNADA ELEMENTAL"
+
+msgid "MENU_TAGLINE"
+msgstr "A luz não se rende."
+
+msgid "MENU_PLAY"
+msgstr "Jogar"
+
+msgid "MENU_MAGES"
+msgstr "Magos"
+
+msgid "MENU_UPGRADES"
+msgstr "Melhorias"
+
+msgid "MENU_CREDITS"
+msgstr "Créditos"
+
+msgid "MENU_PREVIEW_NOTICE"
+msgstr "Prévia em desenvolvimento · explore o mapa e teste os controles."
+
+msgid "BUILD_VERSION"
+msgstr "Versão {version}"
+
+msgid "SAVED_COINS_VALUE"
+msgstr "{coins} moedas permanentes"
+
+msgid "MAP_TITLE"
+msgstr "Os seis reinos"
+
+msgid "MAP_HINT"
+msgstr "Sua jornada começa no Deserto Carmesim."
+
+msgid "MAP_PREVIEW_NOTICE"
+msgstr "Esta prévia leva ao pátio de treino. As batalhas da campanha chegam nas próximas etapas."
+
+msgid "STAGE_DESERT"
+msgstr "Deserto Carmesim"
+
+msgid "STAGE_FOREST"
+msgstr "Floresta Amaldiçoada"
+
+msgid "STAGE_SNOW"
+msgstr "Vale Nevado"
+
+msgid "STAGE_GRAIL"
+msgstr "Santo Graal"
+
+msgid "STAGE_HEAVEN"
+msgstr "Palácio dos Arcanjos"
+
+msgid "STAGE_HELL"
+msgstr "Inferno Profundo"
+
+msgid "STAGE_DESERT_DESC"
+msgstr "Ruínas antigas adormecem sob as dunas vermelhas."
+
+msgid "STAGE_FOREST_DESC"
+msgstr "Uma floresta cujas raízes se lembram da escuridão."
+
+msgid "STAGE_SNOW_DESC"
+msgstr "Caminhos congelados sob um inverno sem fim."
+
+msgid "STAGE_GRAIL_DESC"
+msgstr "Um santuário esquecido e uma promessa sagrada."
+
+msgid "STAGE_HEAVEN_DESC"
+msgstr "Uma cidadela celestial acima das nuvens silenciosas."
+
+msgid "STAGE_HELL_DESC"
+msgstr "A última descida até o coração das trevas."
+
+msgid "STAGE_LOCKED"
+msgstr "Bloqueado"
+
+msgid "STAGE_UNLOCKED"
+msgstr "Disponível"
+
+msgid "STAGE_COMPLETED"
+msgstr "Concluído"
+
+msgid "MAGE_SELECT_TITLE"
+msgstr "Escolha seu mago"
+
+msgid "MAGE_FULL_STATS"
+msgstr "Vida {hp} · Escudo {shield}\nMana {mana} · Dano {damage}"
+
+msgid "ATTACK_ICE"
+msgstr "Ataque · Projétil de Gelo"
+
+msgid "SKILL_ICE"
+msgstr "Habilidade · Nevasca"
+
+msgid "PASSIVE_ICE"
+msgstr "Passiva · dano extra contra inimigos congelados."
+
+msgid "ATTACK_FIRE"
+msgstr "Ataque · Bola de Fogo"
+
+msgid "SKILL_FIRE"
+msgstr "Habilidade · Chuva de Meteoros"
+
+msgid "PASSIVE_FIRE"
+msgstr "Passiva · inimigos em chamas têm mais chance de soltar mana."
+
+msgid "ATTACK_LIGHTNING"
+msgstr "Ataque · Raio Elétrico"
+
+msgid "SKILL_LIGHTNING"
+msgstr "Habilidade · Tempestade Elétrica"
+
+msgid "PASSIVE_LIGHTNING"
+msgstr "Passiva · ataques rápidos e uso eficiente de mana."
+
+msgid "MAGE_AVAILABLE"
+msgstr "Desbloqueado"
+
+msgid "MAGE_BUY"
+msgstr "Desbloquear mago"
+
+msgid "MAGE_ENTER_PRACTICE"
+msgstr "Entrar no treino"
+
+msgid "MAGE_PREVIEW_NOTICE"
+msgstr "As habilidades descrevem a identidade planejada dos magos. O pátio testa os controles de Gelo; aqui não se ganham moedas."
+
+msgid "PURCHASE_SUCCESS"
+msgstr "Compra salva."
+
+msgid "PURCHASE_FAILED"
+msgstr "Não foi possível concluir a compra. Confira o saldo e o armazenamento."
+
+msgid "PROFILE_ERROR"
+msgstr "Não foi possível carregar o progresso com segurança. Os arquivos foram preservados; as compras estão indisponíveis."
+
+msgid "UPGRADE_HP_NAME"
+msgstr "Centelha vital"
+
+msgid "UPGRADE_HP_DESC"
+msgstr "+1 de vida máxima por nível. O pátio de treino reflete os níveis comprados."
+
+msgid "UPGRADE_LEVEL"
+msgstr "Nível {level}/{max}"
+
+msgid "BUY_PRICE"
+msgstr "Comprar · {price} moedas permanentes"
+
+msgid "UPGRADE_MAX"
+msgstr "Nível máximo"
+
+msgid "UPGRADE_PREVIEW_NOTICE"
+msgstr "As moedas permanentes virão de vitórias na campanha. O treino não oferece dinheiro."
+
+msgid "CREDITS_DESIGN"
+msgstr "Projeto e conceito · Kauan Carvalho"
+
+msgid "CREDITS_ENGINE"
+msgstr "Engine · Godot 4.5.2 (MIT)\nDesenvolvimento · GDScript, com auxílio de IA"
+
+msgid "CREDITS_ART"
+msgstr "Pixel art procedural e interface originais, criadas para Crimson Mage. Sem ilustrações de terceiros baixadas."
+
+msgid "CREDITS_STATUS"
+msgstr "Versão 0.2 · menus e controles mobile.\nCampanha, chefes, áudio e habilidades finais dos magos seguem em desenvolvimento."
+
+msgid "LOADING_PRACTICE"
+msgstr "Abrindo o pátio de treino…"
+
+msgid "CONTROL_ATTACK"
+msgstr "ATAQUE"
+
+msgid "CONTROL_SKILL"
+msgstr "MAGIA"
+
+msgid "CONTROL_DASH"
+msgstr "DASH"
+
+msgid "PRACTICE_TITLE"
+msgstr "Pátio de treino"
+
+msgid "PRACTICE_EXIT"
+msgstr "Voltar ao mapa"
+
+msgid "PRACTICE_HINT"
+msgstr "Mova pelo joystick esquerdo. Segure ATAQUE. Combine movimento com MAGIA ou DASH."
+
+msgid "PRACTICE_STATS"
+msgstr "Vida {hp} · Escudo {shield} · Mana {mana}"
+
+msgid "PRACTICE_NO_MANA"
+msgstr "Recuperando mana…"

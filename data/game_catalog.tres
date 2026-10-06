@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameCatalog" load_steps=9 format=3]
+[gd_resource type="Resource" script_class="GameCatalog" load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://resources/game_catalog.gd" id="1"]
 [ext_resource type="Script" path="res://resources/mage_data.gd" id="2"]
@@ -8,9 +8,17 @@
 [ext_resource type="Resource" path="res://data/characters/lightning_mage.tres" id="6"]
 [ext_resource type="Resource" path="res://data/enemies/desert_crawler.tres" id="7"]
 [ext_resource type="Resource" path="res://data/economy/default_economy.tres" id="8"]
+[ext_resource type="Script" path="res://resources/stage_data.gd" id="9"]
+[ext_resource type="Resource" path="res://data/biomes/desert.tres" id="10"]
+[ext_resource type="Resource" path="res://data/biomes/forest.tres" id="11"]
+[ext_resource type="Resource" path="res://data/biomes/snow.tres" id="12"]
+[ext_resource type="Resource" path="res://data/biomes/grail.tres" id="13"]
+[ext_resource type="Resource" path="res://data/biomes/heaven.tres" id="14"]
+[ext_resource type="Resource" path="res://data/biomes/hell.tres" id="15"]
 
 [resource]
 script = ExtResource("1")
 mages = Array[ExtResource("2")]([ExtResource("4"), ExtResource("5"), ExtResource("6")])
 enemies = Array[ExtResource("3")]([ExtResource("7")])
 economy = ExtResource("8")
+stages = Array[ExtResource("9")]([ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15")])

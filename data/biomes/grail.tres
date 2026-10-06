@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/stage_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"grail"
+name_key = &"STAGE_GRAIL"
+description_key = &"STAGE_GRAIL_DESC"
+prerequisite = &"snow"
+map_position = Vector2(0.6, 0.6)
+accent = Color(0.83, 0.64, 0.32, 1)

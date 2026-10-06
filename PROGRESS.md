@@ -1,10 +1,10 @@
 # CRIMSON MAGE DEVELOPMENT STATUS
 
 ## CURRENT BLOCK
-Foundation — escopo autorizado: seções 0–10 do documento mestre.
+Menus e controles — escopo autorizado atual: seções 10–15 do documento mestre.
 
 ## CURRENT STAGE
-Checkpoint final 0–10: implementação integrada, testes Linux headless aprovados e documentação de continuidade pronta. QA visual/mobile pendente.
+Checkpoint 10–15 A: fluxo até o pátio de controles integrado; revisão visual e fechamento em andamento.
 
 ## COMPLETED
 - Repositório original inspecionado; continha somente README.
@@ -19,9 +19,15 @@ Checkpoint final 0–10: implementação integrada, testes Linux headless aprova
 - Configurações com seleção de idioma, atualização imediata, persistência e retorno à foundation.
 - Preferências com arquivo temporário, backup válido, validação de schema e erros de gravação tratados.
 - Reabertura em processos novos confirmou ambas as preferências salvas.
+- Menu com arte pixel original: lua carmesim, mago, manto, partículas e cajado animados.
+- Mapa-pergaminho com seis regiões e três estados; somente Deserto começa aberto.
+- Retratos, status, ataque, habilidade, passiva e seleção dos três magos; bloqueio validado também fora da UI.
+- Telas reais de melhorias e créditos. Settings preserva a tela de origem.
+- Perfil permanente mínimo para saldo, compras e níveis; gravação de débito/desbloqueio em uma transação de arquivo.
+- Pátio para validar joystick 360°, ataque, magia e dash; multitouch com posse por índice, cancelamento, resize e perda de foco.
 
 ## CURRENTLY WORKING
-- Nenhuma seção posterior iniciada. Escopo autorizado encerrado; aguardando próxima instrução.
+- Capturas da engine, revisão do layout e testes finais das seções 10–15.
 
 ## WORKING FEATURES
 - Projeto importável pelo `project.godot`; fluxo principal executado via boot (F5 no editor).
@@ -29,6 +35,8 @@ Checkpoint final 0–10: implementação integrada, testes Linux headless aprova
 - Suite nativa de testes, executável offline.
 - Português/inglês com alteração imediata de rótulos, cartões e mensagens.
 - Preferências locais independentes dos futuros saves de progresso.
+- Boot → menu → mapa → mago → carregamento de recurso → pátio de treino → mapa.
+- Compras usam Saved Coins; treino não gera recompensas nem moedas.
 
 ## KNOWN BUGS
 - Nenhum erro de parsing/runtime nos testes executados. Validação visual e mobile ainda pendentes.
@@ -44,11 +52,12 @@ Checkpoint final 0–10: implementação integrada, testes Linux headless aprova
 
 ## ECONOMY SETTINGS
 - Alvos do documento: Fogo = 500 Saved Coins; Raio = 1.500 Saved Coins.
-- Nenhum sistema de moedas implementado.
+- Saldo de Saved Coins e compras implementados como dependência dos menus. Run Coins, recompensas e banking ainda ausentes.
 - Valores adicionais de combate, loot e loja são sementes de configuração, não balanceamento aprovado em gameplay.
 
 ## SAVE SYSTEM STATUS
-- PermanentSave, RunSave e banking não implementados nesta etapa.
+- Perfil permanente mínimo em `user://permanent_save.json`: saldo, magos, estados de fases e primeiro upgrade. Não é a conclusão do sistema completo das seções 61–69.
+- RunSave e banking não implementados. Continuar Run não aparece porque nenhuma run válida é criada nesta versão.
 - Apenas preferências: `user://settings.cfg`, schema 1, backup e promoção de temporário. Sem carteiras, inventário ou progressão salva.
 
 ## LOCALIZATION STATUS
@@ -64,12 +73,13 @@ iOS: NOT TESTED.
 
 ## LAST TEST RESULTS
 - Conferência documental: repositório correto e escopo definidos.
-- 205 verificações automatizadas: PASS; 0 falhas.
+- 465 verificações da suíte de foundation/localização: PASS; 0 falhas.
+- 65 verificações de menus, transações e multitouch: PASS; 0 falhas.
 - 6 probes em processos independentes: PASS (reset isolado, primeira abertura, gravação/leitura de pt_BR e en).
-- Boot executado até a foundation sem erros de script/runtime.
+- Boot executado até o menu principal sem erros de script/runtime.
 - Cobertura: dados, referências, traduções, preferências, recuperação, escrita inválida, navegação real e geometria de UI em cinco tamanhos de janela.
 - Geometria headless não substitui inspeção visual ou teste de toque em aparelho.
 - Relatório e comandos de reprodução: `docs/QA_0_10.md`.
 
 ## NEXT STEP
-Na próxima autorização, definir o próximo intervalo/bloco. A seção 11 inicia o fluxo final do jogo; o desenvolvimento posterior deve chegar ao controle do Mago de Gelo e uma sala de combate antes de expandir conteúdo. Não confundir esse próximo trabalho com algo já entregue.
+Concluir revisão visual e QA do intervalo 10–15, salvar os checkpoints e parar. A campanha, chefes, áudio e sistemas completos de combate permanecem nas próximas etapas.

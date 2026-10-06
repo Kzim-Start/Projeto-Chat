@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ControlTuning" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/control_tuning.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+joystick_radius = 76.0
+joystick_deadzone = 0.12
+action_radius = 43.0
+dash_duration = 0.2
+dash_speed_multiplier = 3.5
+projectile_speed = 550.0
+projectile_lifetime = 1.8
+practice_mana_regeneration = 14.0

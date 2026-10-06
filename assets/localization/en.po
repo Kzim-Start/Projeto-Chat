@@ -86,3 +86,198 @@ msgstr "Could not save the language. Check available storage and try again."
 
 msgid "NAVIGATION_ERROR"
 msgstr "Could not open the screen. Please try again."
+
+msgid "GAME_TITLE_STACKED"
+msgstr "CRIMSON\nMAGE"
+
+msgid "MENU_EYEBROW"
+msgstr "AN ELEMENTAL JOURNEY"
+
+msgid "MENU_TAGLINE"
+msgstr "The light will not surrender."
+
+msgid "MENU_PLAY"
+msgstr "Play"
+
+msgid "MENU_MAGES"
+msgstr "Mages"
+
+msgid "MENU_UPGRADES"
+msgstr "Upgrades"
+
+msgid "MENU_CREDITS"
+msgstr "Credits"
+
+msgid "MENU_PREVIEW_NOTICE"
+msgstr "Development preview · explore the map and test the controls."
+
+msgid "BUILD_VERSION"
+msgstr "Version {version}"
+
+msgid "SAVED_COINS_VALUE"
+msgstr "{coins} Saved Coins"
+
+msgid "MAP_TITLE"
+msgstr "The six realms"
+
+msgid "MAP_HINT"
+msgstr "Your journey begins in the Crimson Desert."
+
+msgid "MAP_PREVIEW_NOTICE"
+msgstr "This preview leads to the practice courtyard. Campaign battles arrive in the next stages."
+
+msgid "STAGE_DESERT"
+msgstr "Crimson Desert"
+
+msgid "STAGE_FOREST"
+msgstr "Cursed Forest"
+
+msgid "STAGE_SNOW"
+msgstr "Snowy Valley"
+
+msgid "STAGE_GRAIL"
+msgstr "Holy Grail"
+
+msgid "STAGE_HEAVEN"
+msgstr "Archangels' Palace"
+
+msgid "STAGE_HELL"
+msgstr "Deep Inferno"
+
+msgid "STAGE_DESERT_DESC"
+msgstr "Ancient ruins sleep beneath the red dunes."
+
+msgid "STAGE_FOREST_DESC"
+msgstr "A forest whose roots remember the darkness."
+
+msgid "STAGE_SNOW_DESC"
+msgstr "Frozen paths beneath an endless winter."
+
+msgid "STAGE_GRAIL_DESC"
+msgstr "A forgotten sanctuary and a sacred promise."
+
+msgid "STAGE_HEAVEN_DESC"
+msgstr "A celestial citadel above the silent clouds."
+
+msgid "STAGE_HELL_DESC"
+msgstr "The last descent into the heart of the darkness."
+
+msgid "STAGE_LOCKED"
+msgstr "Locked"
+
+msgid "STAGE_UNLOCKED"
+msgstr "Available"
+
+msgid "STAGE_COMPLETED"
+msgstr "Completed"
+
+msgid "MAGE_SELECT_TITLE"
+msgstr "Choose your mage"
+
+msgid "MAGE_FULL_STATS"
+msgstr "HP {hp} · Shield {shield}\nMana {mana} · Damage {damage}"
+
+msgid "ATTACK_ICE"
+msgstr "Attack · Ice Bolt"
+
+msgid "SKILL_ICE"
+msgstr "Skill · Blizzard"
+
+msgid "PASSIVE_ICE"
+msgstr "Passive · bonus damage to frozen enemies."
+
+msgid "ATTACK_FIRE"
+msgstr "Attack · Fireball"
+
+msgid "SKILL_FIRE"
+msgstr "Skill · Meteor Rain"
+
+msgid "PASSIVE_FIRE"
+msgstr "Passive · burning enemies are more likely to drop mana."
+
+msgid "ATTACK_LIGHTNING"
+msgstr "Attack · Lightning Bolt"
+
+msgid "SKILL_LIGHTNING"
+msgstr "Skill · Thunderstorm"
+
+msgid "PASSIVE_LIGHTNING"
+msgstr "Passive · fast attacks and efficient mana use."
+
+msgid "MAGE_AVAILABLE"
+msgstr "Unlocked"
+
+msgid "MAGE_BUY"
+msgstr "Unlock mage"
+
+msgid "MAGE_ENTER_PRACTICE"
+msgstr "Enter practice"
+
+msgid "MAGE_PREVIEW_NOTICE"
+msgstr "Mage abilities describe their planned identity. This courtyard tests the Ice controls; no coins are earned here."
+
+msgid "PURCHASE_SUCCESS"
+msgstr "Purchase saved."
+
+msgid "PURCHASE_FAILED"
+msgstr "Purchase could not be completed. Check your balance and device storage."
+
+msgid "PROFILE_ERROR"
+msgstr "Could not load progression safely. Existing files have been preserved; purchases are unavailable."
+
+msgid "UPGRADE_HP_NAME"
+msgstr "Vital spark"
+
+msgid "UPGRADE_HP_DESC"
+msgstr "+1 maximum HP per level. The practice courtyard reflects purchased levels."
+
+msgid "UPGRADE_LEVEL"
+msgstr "Level {level}/{max}"
+
+msgid "BUY_PRICE"
+msgstr "Buy · {price} Saved Coins"
+
+msgid "UPGRADE_MAX"
+msgstr "Maximum level"
+
+msgid "UPGRADE_PREVIEW_NOTICE"
+msgstr "Saved Coins will come from completed campaign runs. Practice awards no money."
+
+msgid "CREDITS_DESIGN"
+msgstr "Project and concept · Kauan Carvalho"
+
+msgid "CREDITS_ENGINE"
+msgstr "Engine · Godot 4.5.2 (MIT)\nDevelopment · GDScript, with AI assistance"
+
+msgid "CREDITS_ART"
+msgstr "Original procedural pixel art and interface created for Crimson Mage. No downloaded third-party artwork."
+
+msgid "CREDITS_STATUS"
+msgstr "Build 0.2 · menus and mobile controls.\nCampaign, bosses, audio and final mage abilities are still in development."
+
+msgid "LOADING_PRACTICE"
+msgstr "Opening the practice courtyard…"
+
+msgid "CONTROL_ATTACK"
+msgstr "ATTACK"
+
+msgid "CONTROL_SKILL"
+msgstr "SKILL"
+
+msgid "CONTROL_DASH"
+msgstr "DASH"
+
+msgid "PRACTICE_TITLE"
+msgstr "Practice courtyard"
+
+msgid "PRACTICE_EXIT"
+msgstr "Return to map"
+
+msgid "PRACTICE_HINT"
+msgstr "Move with the left stick. Hold ATTACK. Combine movement with SKILL or DASH."
+
+msgid "PRACTICE_STATS"
+msgstr "HP {hp} · Shield {shield} · Mana {mana}"
+
+msgid "PRACTICE_NO_MANA"
+msgstr "Recovering mana…"

@@ -4,6 +4,14 @@ extends Resource
 @export var mages: Array[MageData] = []
 @export var enemies: Array[EnemyData] = []
 @export var economy: EconomyData
+@export var stages: Array[StageData] = []
+
+
+func get_stage(stage_id: StringName) -> StageData:
+	for stage in stages:
+		if stage != null and stage.id == stage_id:
+			return stage
+	return null
 
 
 func get_mage(mage_id: StringName) -> MageData:
@@ -47,4 +55,15 @@ func validate() -> PackedStringArray:
 		if enemy.loot_table != null and economy != null:
 			if not economy.coin_drop_values.has(enemy.loot_table.coin_drop_id):
 				errors.append("Unknown coin drop in loot table: %s" % enemy.id)
+	ids.clear()
+	for stage in stages:
+		if stage == null:
+			errors.append("Catalog contains a missing stage.")
+			continue
+		errors.append_array(stage.validate())
+		if ids.has(stage.id):
+			errors.append("Duplicate stage ID: %s" % stage.id)
+		if not stage.prerequisite.is_empty() and not ids.has(stage.prerequisite):
+			errors.append("Stage prerequisite must precede it: %s" % stage.id)
+		ids[stage.id] = true
 	return errors

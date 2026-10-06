@@ -24,6 +24,8 @@ run_checked() {
 run_checked --headless --editor --path . --import
 run_checked --headless --path . --quit-after 1800 res://tests/test_runner.tscn -- --test-mode
 has_pattern '^RESULT: [0-9]+ checks, 0 failures$'
+run_checked --headless --path . --quit-after 2400 res://tests/test_stage_10_15.tscn -- --test-mode
+has_pattern '^MENU RESULT: [0-9]+ checks, 0 failures$'
 run_checked --headless --path . --quit-after 60 -- --test-mode
 for probe in --probe-reset --probe-device --probe-write=pt_BR --probe-read=pt_BR --probe-write=en --probe-read=en; do
   run_checked --headless --path . --quit-after 1800 res://tests/preference_probe.tscn -- --test-mode "$probe"

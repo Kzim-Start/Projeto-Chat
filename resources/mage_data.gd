@@ -17,6 +17,9 @@ extends Resource
 @export_enum("Ice", "Fire", "Lightning") var element: int = 0
 @export var sprite_data: SpriteFrames
 @export var unlocked_by_default: bool = false
+@export var attack_key: StringName
+@export var skill_key: StringName
+@export var passive_key: StringName
 
 
 func validate() -> PackedStringArray:

@@ -18,3 +18,6 @@ skill_cooldown = 8.0
 dash_cooldown = 1.2
 element = 0
 unlocked_by_default = true
+attack_key = &"ATTACK_ICE"
+skill_key = &"SKILL_ICE"
+passive_key = &"PASSIVE_ICE"

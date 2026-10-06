@@ -17,3 +17,6 @@ attack_speed = 3.0
 skill_cooldown = 7.0
 dash_cooldown = 1.2
 element = 2
+attack_key = &"ATTACK_LIGHTNING"
+skill_key = &"SKILL_LIGHTNING"
+passive_key = &"PASSIVE_LIGHTNING"

@@ -17,3 +17,6 @@ attack_speed = 1.6
 skill_cooldown = 10.0
 dash_cooldown = 1.2
 element = 1
+attack_key = &"ATTACK_FIRE"
+skill_key = &"SKILL_FIRE"
+passive_key = &"PASSIVE_FIRE"

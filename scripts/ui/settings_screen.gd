@@ -32,5 +32,5 @@ func _on_locale_changed(locale: String) -> void:
 
 
 func _go_back() -> void:
-	if SceneManager.navigate_to(SceneManager.Page.FOUNDATION) != OK:
+	if SceneManager.navigate_to(SceneManager.settings_return_page) != OK:
 		%Message.text = "NAVIGATION_ERROR"
