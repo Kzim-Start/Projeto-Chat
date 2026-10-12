@@ -31,17 +31,17 @@ func _build_cards() -> void:
 		panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		cards.add_child(panel)
 		var column := VBoxContainer.new()
-		column.add_theme_constant_override("separation", 10)
+		column.add_theme_constant_override("separation", 8)
 		panel.add_child(column)
 		var portrait := TextureRect.new()
 		portrait.texture = PixelArt.mage(mage.element)
-		portrait.custom_minimum_size.y = 105
+		portrait.custom_minimum_size.y = 80
 		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		column.add_child(portrait)
 		_portraits.append(portrait)
 		column.add_child(label(String(mage.name_key), 26))
-		var info := label(tr("MAGE_FULL_STATS").format({"hp": mage.max_hp + ProgressionManager.get_hp_level(), "shield": mage.max_shield, "mana": int(mage.max_mana), "damage": mage.attack_damage}), 18)
+		var info := label(tr("MAGE_FULL_STATS").format({"hp": mage.max_hp + ProgressionManager.get_hp_bonus(), "shield": mage.max_shield, "mana": int(mage.max_mana), "damage": mage.attack_damage}), 18)
 		info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		column.add_child(info)
 		for key: StringName in [mage.description_key, mage.attack_key, mage.skill_key, mage.passive_key]:

@@ -58,13 +58,18 @@ func get_hp_level() -> int:
 
 
 func get_hp_price() -> int:
-	return int(ceil(GameManager.CATALOG.economy.permanent_upgrade_costs[&"max_hp_1"] * pow(1.5, get_hp_level())))
+	var economy := GameManager.CATALOG.economy
+	return int(ceil(economy.permanent_upgrade_costs[&"max_hp_1"] * pow(economy.max_hp_upgrade_multiplier, get_hp_level())))
+
+
+func get_hp_bonus() -> int:
+	return get_hp_level() * GameManager.CATALOG.economy.max_hp_per_level
 
 
 func purchase_hp_upgrade() -> Error:
 	if load_error != OK:
 		return load_error
-	if get_hp_level() >= 3:
+	if get_hp_level() >= GameManager.CATALOG.economy.max_hp_upgrade_levels:
 		return ERR_ALREADY_EXISTS
 	var price := get_hp_price()
 	if get_saved_coins() < price:

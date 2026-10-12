@@ -66,4 +66,7 @@ func validate() -> PackedStringArray:
 		if not stage.prerequisite.is_empty() and not ids.has(stage.prerequisite):
 			errors.append("Stage prerequisite must precede it: %s" % stage.id)
 		ids[stage.id] = true
+	for stage_id: StringName in [&"desert", &"forest", &"snow", &"grail", &"heaven", &"hell"]:
+		if not ids.has(stage_id):
+			errors.append("Missing region definition: %s" % stage_id)
 	return errors

@@ -131,7 +131,7 @@ func _physics_process(delta: float) -> void:
 	controls.cooldowns.dash = player.dash_cooldown / player.definition.dash_cooldown
 	controls.queue_redraw()
 	mana_bar.value = player.mana
-	hud.text = tr("PRACTICE_STATS").format({"hp": player.definition.max_hp + ProgressionManager.get_hp_level(), "shield": player.definition.max_shield, "mana": int(player.mana)})
+	hud.text = tr("PRACTICE_STATS").format({"hp": player.definition.max_hp + ProgressionManager.get_hp_bonus(), "shield": player.definition.max_shield, "mana": int(player.mana)})
 	queue_redraw()
 
 

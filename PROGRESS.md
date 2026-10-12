@@ -1,10 +1,10 @@
 # CRIMSON MAGE DEVELOPMENT STATUS
 
 ## CURRENT BLOCK
-Menus e controles — escopo autorizado atual: seções 10–15 do documento mestre.
+Seções 10–15 e ampliação autorizada em 11/10/2026: magos mais detalhados em pixel art, loja de equipamentos, tela para equipar e bônus de dano.
 
 ## CURRENT STAGE
-Checkpoint 10–15 A: fluxo até o pátio de controles integrado; revisão visual e fechamento em andamento.
+Checkpoint 10–15 B: correções de mapa/pergaminho e cartões verificadas. Próximo checkpoint: arte dos magos e equipamentos.
 
 ## COMPLETED
 - Repositório original inspecionado; continha somente README.
@@ -27,7 +27,7 @@ Checkpoint 10–15 A: fluxo até o pátio de controles integrado; revisão visua
 - Pátio para validar joystick 360°, ataque, magia e dash; multitouch com posse por índice, cancelamento, resize e perda de foco.
 
 ## CURRENTLY WORKING
-- Capturas da engine, revisão do layout e testes finais das seções 10–15.
+- Implementação de equipamentos permanentes (cajado, manto e amuleto), com compra por Saved Coins e cálculo de dano; redesenho dos magos.
 
 ## WORKING FEATURES
 - Projeto importável pelo `project.godot`; fluxo principal executado via boot (F5 no editor).
@@ -39,7 +39,7 @@ Checkpoint 10–15 A: fluxo até o pátio de controles integrado; revisão visua
 - Compras usam Saved Coins; treino não gera recompensas nem moedas.
 
 ## KNOWN BUGS
-- Nenhum erro de parsing/runtime nos testes executados. Validação visual e mobile ainda pendentes.
+- Corrigidos o pergaminho fora da tela e botões cortados nos cartões. Revisão visual das quatro telas realizada em Linux; teste em aparelho ainda pendente.
 
 ## IMPORTANT DESIGN DECISIONS
 - Projeto distinto de Yggdrasil; não reutilizar sua progressão ou engine.
@@ -58,7 +58,7 @@ Checkpoint 10–15 A: fluxo até o pátio de controles integrado; revisão visua
 ## SAVE SYSTEM STATUS
 - Perfil permanente mínimo em `user://permanent_save.json`: saldo, magos, estados de fases e primeiro upgrade. Não é a conclusão do sistema completo das seções 61–69.
 - RunSave e banking não implementados. Continuar Run não aparece porque nenhuma run válida é criada nesta versão.
-- Apenas preferências: `user://settings.cfg`, schema 1, backup e promoção de temporário. Sem carteiras, inventário ou progressão salva.
+- Preferências independentes: `user://settings.cfg`, schema 1, backup e promoção de temporário.
 
 ## LOCALIZATION STATUS
 - pt_BR/en integrados; chaves, conteúdo não vazio e placeholders conferidos automaticamente.
@@ -66,7 +66,7 @@ Checkpoint 10–15 A: fluxo até o pátio de controles integrado; revisão visua
 
 ## LAST TESTED BUILD
 Godot Version: 4.5.2.stable.official.6ce3de25a.
-Linux: PASS — importação headless e suite nativa de foundation; visual NOT TESTED.
+Linux: PASS — importação, testes headless e renderização OpenGL/llvmpipe de menu, mapa, magos e treino em 1280×720.
 Windows: NOT TESTED.
 Android: NOT TESTED.
 iOS: NOT TESTED.
@@ -74,7 +74,7 @@ iOS: NOT TESTED.
 ## LAST TEST RESULTS
 - Conferência documental: repositório correto e escopo definidos.
 - 465 verificações da suíte de foundation/localização: PASS; 0 falhas.
-- 65 verificações de menus, transações e multitouch: PASS; 0 falhas.
+- 73 verificações de menus, transações, geometria e multitouch: PASS; 0 falhas.
 - 6 probes em processos independentes: PASS (reset isolado, primeira abertura, gravação/leitura de pt_BR e en).
 - Boot executado até o menu principal sem erros de script/runtime.
 - Cobertura: dados, referências, traduções, preferências, recuperação, escrita inválida, navegação real e geometria de UI em cinco tamanhos de janela.
@@ -82,4 +82,4 @@ iOS: NOT TESTED.
 - Relatório e comandos de reprodução: `docs/QA_0_10.md`.
 
 ## NEXT STEP
-Concluir revisão visual e QA do intervalo 10–15, salvar os checkpoints e parar. A campanha, chefes, áudio e sistemas completos de combate permanecem nas próximas etapas.
+Implementar e testar a ampliação de equipamentos solicitada, salvar código e prévias. Campanha, chefes, áudio e combate completo continuam pendentes. Ao interromper, registrar aqui os arquivos e verificações que ainda faltam.

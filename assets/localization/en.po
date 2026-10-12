@@ -229,7 +229,7 @@ msgid "UPGRADE_HP_NAME"
 msgstr "Vital spark"
 
 msgid "UPGRADE_HP_DESC"
-msgstr "+1 maximum HP per level. The practice courtyard reflects purchased levels."
+msgstr "+{bonus} maximum HP per level. The practice courtyard reflects purchased levels."
 
 msgid "UPGRADE_LEVEL"
 msgstr "Level {level}/{max}"

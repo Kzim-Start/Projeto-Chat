@@ -42,10 +42,14 @@ func validate(data: Dictionary) -> bool:
 	for id in data.completed_stages:
 		if not id in data.unlocked_stages:
 			return false
+	for id in data.unlocked_stages:
+		var prerequisite := catalog.get_stage(id).prerequisite
+		if not prerequisite.is_empty() and not String(prerequisite) in data.completed_stages:
+			return false
 	if not data.permanent_upgrades is Dictionary or not data.settings is Dictionary or not data.statistics is Dictionary:
 		return false
 	for id in data.permanent_upgrades:
-		if id != "max_hp" or not _integer(data.permanent_upgrades[id]) or data.permanent_upgrades[id] < 0 or data.permanent_upgrades[id] > 3:
+		if id != "max_hp" or not _integer(data.permanent_upgrades[id]) or data.permanent_upgrades[id] < 0 or data.permanent_upgrades[id] > catalog.economy.max_hp_upgrade_levels:
 			return false
 	return data.tutorial_completed is bool and data.last_banked_run_id is String
 
@@ -58,6 +62,8 @@ func load_profile() -> Dictionary:
 	if backup.error in [OK, ERR_UNAVAILABLE]:
 		backup.recovered = backup.error == OK
 		return backup
+	if primary.error == ERR_FILE_NOT_FOUND and backup.error != ERR_FILE_NOT_FOUND:
+		return backup # A damaged backup is not a brand-new player.
 	return primary
 
 

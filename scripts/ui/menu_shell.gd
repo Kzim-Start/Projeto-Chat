@@ -7,7 +7,7 @@ var heading: Label
 var coins_label: Label
 var message: Label
 var back_button: Button
-var back_page: int = 2
+var back_page: int = -1
 
 
 func build_shell(title_key: String, destination: int) -> void:

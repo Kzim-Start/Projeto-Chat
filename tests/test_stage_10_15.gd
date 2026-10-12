@@ -92,6 +92,18 @@ func _test_progression() -> void:
 	invalid = fixture.duplicate(true)
 	invalid.completed_stages = ["hell"]
 	check(not store.validate(invalid), "Locked stage cannot be marked completed")
+	invalid = fixture.duplicate(true)
+	invalid.unlocked_stages.append("hell")
+	check(not store.validate(invalid), "Unlocking a region requires its completed prerequisite")
+	invalid = fixture.duplicate(true)
+	invalid.completed_stages.append("desert")
+	invalid.unlocked_stages.append("forest")
+	check(store.validate(invalid), "Consistent completed and unlocked states are accepted")
+	var damaged_path := test_directory.path_join("missing_primary.json")
+	var damaged_backup := FileAccess.open(damaged_path + ".bak", FileAccess.WRITE)
+	damaged_backup.store_string("broken backup")
+	damaged_backup.close()
+	check(ProfileStore.new(damaged_path, catalog).load_profile().error == ERR_FILE_CORRUPT, "Missing primary with damaged backup is not silently reset")
 	var corrupted := FileAccess.open(store.path, FileAccess.WRITE)
 	corrupted.store_string("{truncated")
 	corrupted.close()
@@ -149,12 +161,19 @@ func _test_flow() -> void:
 	check(parchment._buttons.size() == 6, "Map contains six stage controls")
 	await get_tree().create_timer(1.0).timeout
 	check(parchment.reveal >= 0.99 and is_zero_approx(parchment.rotation), "Parchment entrance finishes")
+	check(parchment.position.is_zero_approx() and parchment.scale.is_equal_approx(Vector2.ONE) and parchment.modulate.a > 0.99, "Parchment finishes at its visible layout position")
+	check(parchment.size.x > 1000 and parchment.size.y >= 410 and map.get_global_rect().encloses(parchment.get_global_rect()), "Parchment fills a visible area inside the viewport")
 	check(not parchment.get_node("desert").disabled and parchment.get_node("forest").disabled, "Only unlocked map button is enabled")
 	parchment.get_node("desert").pressed.emit()
 	await get_tree().scene_changed
 	var selection := get_tree().current_scene
+	await get_tree().process_frame
+	await get_tree().process_frame
 	check(selection.name == "MageSelection", "Stage leads to mage selection")
 	check(selection.cards.get_child_count() == 3, "Three mage portraits displayed")
+	for card in selection.cards.get_children():
+		var action: Button = card.find_child("Choose", true, false)
+		check(selection.cards.get_parent().get_global_rect().encloses(action.get_global_rect()), "Mage action visible without scrolling: " + card.name)
 	check(selection.cards.get_node("fire").find_child("Choose", true, false).disabled, "Locked mage cannot launch practice")
 	selection.cards.get_node("ice").find_child("Choose", true, false).pressed.emit()
 	await get_tree().scene_changed

@@ -229,7 +229,7 @@ msgid "UPGRADE_HP_NAME"
 msgstr "Centelha vital"
 
 msgid "UPGRADE_HP_DESC"
-msgstr "+1 de vida máxima por nível. O pátio de treino reflete os níveis comprados."
+msgstr "+{bonus} de vida máxima por nível. O pátio de treino reflete os níveis comprados."
 
 msgid "UPGRADE_LEVEL"
 msgstr "Nível {level}/{max}"

@@ -11,7 +11,7 @@ func _ready() -> void:
 	var column := VBoxContainer.new()
 	panel.add_child(column)
 	column.add_child(label("UPGRADE_HP_NAME", 30))
-	column.add_child(label("UPGRADE_HP_DESC", 21))
+	column.add_child(label(tr("UPGRADE_HP_DESC").format({"bonus": GameManager.CATALOG.economy.max_hp_per_level}), 21))
 	level_label = label("", 22)
 	column.add_child(level_label)
 	buy_button = button("", _purchase)
@@ -22,10 +22,11 @@ func _ready() -> void:
 
 
 func _refresh() -> void:
-	level_label.text = tr("UPGRADE_LEVEL").format({"level": ProgressionManager.get_hp_level(), "max": 3})
+	var maximum := GameManager.CATALOG.economy.max_hp_upgrade_levels
+	level_label.text = tr("UPGRADE_LEVEL").format({"level": ProgressionManager.get_hp_level(), "max": maximum})
 	buy_button.text = tr("BUY_PRICE").format({"price": ProgressionManager.get_hp_price()})
-	buy_button.disabled = ProgressionManager.get_hp_level() >= 3 or ProgressionManager.get_saved_coins() < ProgressionManager.get_hp_price() or ProgressionManager.load_error != OK
-	if ProgressionManager.get_hp_level() >= 3:
+	buy_button.disabled = ProgressionManager.get_hp_level() >= maximum or ProgressionManager.get_saved_coins() < ProgressionManager.get_hp_price() or ProgressionManager.load_error != OK
+	if ProgressionManager.get_hp_level() >= maximum:
 		buy_button.text = "UPGRADE_MAX"
 
 

@@ -6,6 +6,9 @@
 script = ExtResource("1")
 fire_mage_price = 500
 lightning_mage_price = 1500
+max_hp_upgrade_levels = 3
+max_hp_upgrade_multiplier = 1.5
+max_hp_per_level = 1
 phase_rewards = Dictionary[StringName, int]({&"desert": 200})
 shop_prices = Dictionary[StringName, int]({&"health_potion": 20, &"mana_potion": 15})
 permanent_upgrade_costs = Dictionary[StringName, int]({&"max_hp_1": 100})

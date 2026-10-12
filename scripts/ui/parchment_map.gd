@@ -35,8 +35,11 @@ func _state_key(id: StringName) -> String:
 
 
 func _animate() -> void:
+	# Wait for the outer VBox to allocate the map area before measuring it.
+	await get_tree().process_frame
+	await get_tree().process_frame
 	_position_nodes()
-	var destination := position
+	var destination := Vector2.ZERO
 	position.x -= size.x + 100.0
 	pivot_offset = size / 2.0
 	rotation = -0.20
@@ -52,7 +55,8 @@ func _animate() -> void:
 	await _entrance.finished
 	for index in range(_buttons.size()):
 		_buttons[index].disabled = ProgressionManager.get_stage_state(GameManager.CATALOG.stages[index].id) == ProgressionManager.StageState.LOCKED
-	_buttons[0].grab_focus()
+	if is_inside_tree():
+		_buttons[0].grab_focus()
 
 
 func _position_nodes() -> void:
