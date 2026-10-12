@@ -8,6 +8,7 @@ var controls: MobileControls
 var targets: Array[Dictionary] = []
 var bolts: Array[Dictionary] = []
 var blizzards: Array[Dictionary] = []
+var hit_numbers: Array[Dictionary] = []
 var hud: Label
 var mana_bar: ProgressBar
 var feedback: Label
@@ -66,6 +67,9 @@ func _build_hud() -> void:
 	mana_bar.size_flags_horizontal = Control.SIZE_SHRINK_END
 	mana_bar.max_value = player.definition.max_mana
 	mana_bar.show_percentage = false
+	var fill := StyleBoxFlat.new()
+	fill.bg_color = Color("65adc4")
+	mana_bar.add_theme_stylebox_override("fill",fill)
 	column.add_child(mana_bar)
 	feedback = MenuShell.label("PRACTICE_HINT", 18)
 	feedback.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -84,11 +88,15 @@ func _layout() -> void:
 	for bolt in bolts:
 		bolt.life = 0.0
 	blizzards.clear()
+	hit_numbers.clear()
 	queue_redraw()
 
 
 func _physics_process(delta: float) -> void:
 	_time += delta
+	for number in hit_numbers:
+		number.life -= delta
+	hit_numbers = hit_numbers.filter(func(number: Dictionary) -> bool: return number.life > 0)
 	_feedback_time = maxf(0, _feedback_time - delta)
 	if _feedback_time <= 0:
 		feedback.text = "PRACTICE_HINT"
@@ -114,7 +122,7 @@ func _physics_process(delta: float) -> void:
 		bolt.position += bolt.direction * TUNING.projectile_speed * delta
 		for target in targets:
 			if target.respawn <= 0 and bolt.position.distance_to(target.position) < 30:
-				_hit(target, player.definition.attack_damage)
+				_hit(target, bolt.damage)
 				bolt.life = 0.0
 				break
 	for area in blizzards:
@@ -131,7 +139,7 @@ func _physics_process(delta: float) -> void:
 	controls.cooldowns.dash = player.dash_cooldown / player.definition.dash_cooldown
 	controls.queue_redraw()
 	mana_bar.value = player.mana
-	hud.text = tr("PRACTICE_STATS").format({"hp": player.definition.max_hp + ProgressionManager.get_hp_bonus(), "shield": player.definition.max_shield, "mana": int(player.mana)})
+	hud.text = tr("PRACTICE_STATS").format({"hp": player.definition.max_hp + ProgressionManager.get_hp_bonus(), "shield": player.definition.max_shield, "mana": int(player.mana)}) + " · " + tr("GEAR_DAMAGE").format({"damage":"%.2f" % player.attack_damage})
 	queue_redraw()
 
 
@@ -141,6 +149,7 @@ func _fire(origin: Vector2, direction: Vector2) -> void:
 			bolt.position = origin
 			bolt.direction = direction
 			bolt.life = TUNING.projectile_lifetime
+			bolt.damage = player.attack_damage
 			return
 
 
@@ -151,6 +160,9 @@ func _blizzard(origin: Vector2) -> void:
 func _hit(target: Dictionary, damage: float) -> void:
 	target.health -= damage
 	target.flash = 0.14
+	if hit_numbers.size() >= 16:
+		hit_numbers.pop_front()
+	hit_numbers.append({"position":target.position,"damage":damage,"life":0.7})
 	if target.health <= 0:
 		target.respawn = 1.8
 
@@ -199,8 +211,16 @@ func _draw() -> void:
 		draw_rect(Rect2(point + Vector2(-20, -53), Vector2(40 * maxf(0, target.health) / 3.0, 4)), Color("a9cccd"))
 	for bolt in bolts:
 		if bolt.life > 0:
+			draw_circle(bolt.position,11,Color(0.5,0.85,1,0.10))
 			draw_line(bolt.position - bolt.direction * 18, bolt.position, Color("6299b6"), 6)
 			draw_rect(Rect2(bolt.position - Vector2(4, 4), Vector2(8, 8)), Color("c3f8f1"))
+	for number in hit_numbers:
+		var age: float = 0.7-number.life
+		var point: Vector2 = number.position + Vector2(-15,-60-age*30)
+		draw_string(ThemeDB.fallback_font,point,"%.2f" % number.damage,HORIZONTAL_ALIGNMENT_LEFT,-1,19,Color(0.8,1,0.92,minf(1,number.life*4)))
+		for shard in range(6):
+			var spark: Vector2 = number.position + Vector2.from_angle(shard*TAU/6)*(10+age*40)
+			draw_rect(Rect2(spark.floor(),Vector2(3,3)),Color(0.7,0.94,1,number.life*0.7))
 	for area in blizzards:
 		var alpha: float = minf(1, area.life) * 0.45
 		draw_circle(area.position, 170, Color(0.48, 0.80, 0.90, alpha * 0.18))

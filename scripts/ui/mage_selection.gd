@@ -1,8 +1,7 @@
 extends MenuShell
 
 var cards: HBoxContainer
-var _portraits: Array[TextureRect] = []
-var _time: float = 0.0
+var _portraits: Array[MagePortrait] = []
 
 
 func _ready() -> void:
@@ -33,17 +32,26 @@ func _build_cards() -> void:
 		var column := VBoxContainer.new()
 		column.add_theme_constant_override("separation", 8)
 		panel.add_child(column)
-		var portrait := TextureRect.new()
-		portrait.texture = PixelArt.mage(mage.element)
-		portrait.custom_minimum_size.y = 80
-		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		column.add_child(portrait)
+		var header := HBoxContainer.new()
+		header.add_theme_constant_override("separation", 12)
+		column.add_child(header)
+		var portrait := MagePortrait.new()
+		portrait.element = mage.element
+		portrait.outfit = ProgressionManager.get_visual_loadout(mage.id)
+		portrait.custom_minimum_size = Vector2(116,156)
+		header.add_child(portrait)
 		_portraits.append(portrait)
-		column.add_child(label(String(mage.name_key), 26))
-		var info := label(tr("MAGE_FULL_STATS").format({"hp": mage.max_hp + ProgressionManager.get_hp_bonus(), "shield": mage.max_shield, "mana": int(mage.max_mana), "damage": mage.attack_damage}), 18)
+		var identity := VBoxContainer.new()
+		identity.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		identity.alignment = BoxContainer.ALIGNMENT_CENTER
+		header.add_child(identity)
+		var title := label(String(mage.name_key),24)
+		title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		title.add_theme_color_override("font_color",PixelArt.accent(mage.element))
+		identity.add_child(title)
+		var info := label(tr("MAGE_FULL_STATS").format({"hp": mage.max_hp + ProgressionManager.get_hp_bonus(), "shield": mage.max_shield, "mana": int(mage.max_mana), "damage": "%.2f" % ProgressionManager.get_attack_damage(mage.id)}), 17)
 		info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		column.add_child(info)
+		identity.add_child(info)
 		for key: StringName in [mage.description_key, mage.attack_key, mage.skill_key, mage.passive_key]:
 			var description := label(String(key), 17)
 			description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -56,17 +64,25 @@ func _build_cards() -> void:
 		if not unlocked:
 			status.text = tr("MAGE_LOCKED_PRICE").format({"price": GameManager.CATALOG.economy.get_mage_price(mage.id)})
 		column.add_child(status)
+		var actions := HBoxContainer.new()
+		actions.add_theme_constant_override("separation",8)
+		column.add_child(actions)
 		var action := button("MAGE_ENTER_PRACTICE" if unlocked else "MAGE_BUY", _activate.bind(mage.id))
 		action.name = "Choose"
-		action.add_theme_font_size_override("font_size", 18)
+		action.add_theme_font_size_override("font_size", 16)
+		action.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		action.disabled = not unlocked and (ProgressionManager.get_saved_coins() < GameManager.CATALOG.economy.get_mage_price(mage.id) or ProgressionManager.load_error != OK)
-		column.add_child(action)
+		actions.add_child(action)
+		if unlocked:
+			var gear := button("GEAR_SHORT",_open_equipment.bind(mage.id))
+			gear.name = "Equipment"
+			gear.add_theme_font_size_override("font_size",16)
+			actions.add_child(gear)
 
 
-func _process(delta: float) -> void:
-	_time += delta
-	for index in range(_portraits.size()):
-		_portraits[index].texture = PixelArt.mage(index, int(_time * 5.0))
+func _open_equipment(id: StringName) -> void:
+	if SceneManager.select_mage(id) == OK:
+		SceneManager.navigate_to(SceneManager.Page.EQUIPMENT)
 
 
 func _activate(id: StringName) -> void:

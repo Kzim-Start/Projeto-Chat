@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EquipmentData" load_steps=2 format=3]
+[ext_resource type="Script" path="res://resources/equipment_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = &"eclipse_staff"
+name_key = &"ITEM_ECLIPSE"
+description_key = &"ITEM_ECLIPSE_DESC"
+slot = "staff"
+price = 340
+damage_flat = 0.60
+visual_tier = 2

@@ -281,3 +281,123 @@ msgstr "Vida {hp} · Escudo {shield} · Mana {mana}"
 
 msgid "PRACTICE_NO_MANA"
 msgstr "Recuperando mana…"
+
+msgid "MENU_EQUIPMENT"
+msgstr "Equipamentos"
+
+msgid "GEAR_TITLE"
+msgstr "Arsenal arcano"
+
+msgid "GEAR_SHORT"
+msgstr "Itens"
+
+msgid "GEAR_SHOP"
+msgstr "Loja arcana"
+
+msgid "GEAR_INVENTORY"
+msgstr "Meus equipamentos"
+
+msgid "GEAR_DAMAGE"
+msgstr "Dano {damage}"
+
+msgid "GEAR_EMPTY"
+msgstr "Vazio"
+
+msgid "GEAR_EQUIPPED"
+msgstr "Equipado"
+
+msgid "GEAR_OWNED"
+msgstr "Adquirido"
+
+msgid "GEAR_FREE"
+msgstr "Presente inicial"
+
+msgid "GEAR_PRICE"
+msgstr "{coins} moedas"
+
+msgid "GEAR_FLAT"
+msgstr "+{value} dano"
+
+msgid "GEAR_PERCENT"
+msgstr "+{value}% dano"
+
+msgid "GEAR_COMPARISON"
+msgstr "Dano com este item: {before} → {after}"
+
+msgid "GEAR_EQUIP"
+msgstr "Equipar neste mago"
+
+msgid "GEAR_UNEQUIP"
+msgstr "Remover"
+
+msgid "GEAR_CLAIM"
+msgstr "Resgatar grátis"
+
+msgid "GEAR_BUY"
+msgstr "Comprar · {coins} moedas"
+
+msgid "GEAR_EMPTY_INVENTORY"
+msgstr "Seu inventário está vazio"
+
+msgid "GEAR_STARTER_HINT"
+msgstr "Na loja, resgate seu amuleto inicial gratuitamente."
+
+msgid "GEAR_HELP"
+msgstr "Itens permanentes. Cada mago guarda sua combinação; só uma peça por espaço."
+
+msgid "GEAR_BOUGHT"
+msgstr "Item adquirido! Toque em Equipar para usar seu bônus."
+
+msgid "GEAR_EQUIP_SUCCESS"
+msgstr "Equipado. O bônus já vale para os próximos ataques no treino."
+
+msgid "GEAR_REMOVED"
+msgstr "Item removido. Ele continua no seu inventário."
+
+msgid "SLOT_STAFF"
+msgstr "Cajado"
+
+msgid "SLOT_MANTLE"
+msgstr "Manto"
+
+msgid "SLOT_AMULET"
+msgstr "Amuleto"
+
+msgid "ITEM_APPRENTICE"
+msgstr "Amuleto do Aprendiz"
+
+msgid "ITEM_APPRENTICE_DESC"
+msgstr "Uma centelha para iniciar sua jornada. Resgate uma vez, equipe e teste o dano."
+
+msgid "ITEM_RUNIC"
+msgstr "Cajado Rúnico"
+
+msgid "ITEM_RUNIC_DESC"
+msgstr "Runas conduzem energia pelo cristal e fortalecem os ataques básicos."
+
+msgid "ITEM_EMBROIDERED"
+msgstr "Manto do Arcanista"
+
+msgid "ITEM_EMBROIDERED_DESC"
+msgstr "Bordados dourados ampliam a potência dos ataques básicos."
+
+msgid "ITEM_MOON"
+msgstr "Pingente Lunar"
+
+msgid "ITEM_MOON_DESC"
+msgstr "Uma pedra lunar lapidada combina poder direto e amplificação de dano."
+
+msgid "ITEM_ECLIPSE"
+msgstr "Cajado do Eclipse"
+
+msgid "ITEM_ECLIPSE_DESC"
+msgstr "Dois arcos dourados estabilizam um núcleo de magia concentrada."
+
+msgid "ITEM_ASTRAL"
+msgstr "Manto Astral"
+
+msgid "ITEM_ASTRAL_DESC"
+msgstr "Ombreiras e fios encantados canalizam ainda mais poder para cada ataque básico."
+
+msgid "GEAR_PREVIEW_FIXTURE"
+msgstr "Prévia de teste · saldo e compras simulados em perfil isolado."

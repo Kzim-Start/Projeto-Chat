@@ -2,7 +2,7 @@ class_name ProfileStore
 extends RefCounted
 ## Menu progression only. No run coins, run snapshots or victory banking.
 
-const VERSION: int = 1
+const VERSION: int = 2
 const MAX_COINS: int = 2147483647
 var path: String
 var catalog: GameCatalog
@@ -14,7 +14,7 @@ func _init(file_path: String, definitions: GameCatalog) -> void:
 
 
 static func initial_profile() -> Dictionary:
-	return {"save_version": VERSION, "saved_coins": 0, "unlocked_mages": ["ice"], "unlocked_stages": ["desert"], "completed_stages": [], "permanent_upgrades": {}, "tutorial_completed": false, "settings": {}, "statistics": {}, "last_banked_run_id": ""}
+	return {"save_version": VERSION, "saved_coins": 0, "unlocked_mages": ["ice"], "unlocked_stages": ["desert"], "completed_stages": [], "permanent_upgrades": {}, "owned_equipment": [], "loadouts": {}, "tutorial_completed": false, "settings": {}, "statistics": {}, "last_banked_run_id": ""}
 
 
 func validate(data: Dictionary) -> bool:
@@ -51,6 +51,22 @@ func validate(data: Dictionary) -> bool:
 	for id in data.permanent_upgrades:
 		if id != "max_hp" or not _integer(data.permanent_upgrades[id]) or data.permanent_upgrades[id] < 0 or data.permanent_upgrades[id] > catalog.economy.max_hp_upgrade_levels:
 			return false
+	if not data.owned_equipment is Array or not data.loadouts is Dictionary:
+		return false
+	var owned: Dictionary = {}
+	for id in data.owned_equipment:
+		if not id is String or owned.has(id) or catalog.get_equipment(id) == null:
+			return false
+		owned[id] = true
+	for mage_id in data.loadouts:
+		if not mage_id is String or not mage_id in data.unlocked_mages or not data.loadouts[mage_id] is Dictionary:
+			return false
+		for slot in data.loadouts[mage_id]:
+			var id: Variant = data.loadouts[mage_id][slot]
+			if not slot is String or not StringName(slot) in EquipmentData.SLOTS or not id is String or not owned.has(id):
+				return false
+			if catalog.get_equipment(id).slot != slot:
+				return false
 	return data.tutorial_completed is bool and data.last_banked_run_id is String
 
 
@@ -97,7 +113,7 @@ func save_profile(data: Dictionary) -> Error:
 
 
 func _read(file_path: String) -> Dictionary:
-	var result := {"error": ERR_FILE_NOT_FOUND, "data": {}, "recovered": false}
+	var result := {"error": ERR_FILE_NOT_FOUND, "data": {}, "recovered": false, "migrated": false}
 	if not FileAccess.file_exists(file_path):
 		return result
 	var file := FileAccess.open(file_path, FileAccess.READ)
@@ -111,6 +127,13 @@ func _read(file_path: String) -> Dictionary:
 	if error != OK or not parser.data is Dictionary:
 		return result
 	var data: Dictionary = parser.data
+	if _integer(data.get("save_version")) and int(data.save_version) == 1:
+		# v1 had no inventory. Preserve every existing progression value.
+		data = data.duplicate(true)
+		data.save_version = VERSION
+		data.owned_equipment = []
+		data.loadouts = {}
+		result.migrated = true
 	if _integer(data.get("save_version")) and data.save_version > VERSION:
 		result.error = ERR_UNAVAILABLE
 	elif validate(data):

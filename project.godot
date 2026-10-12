@@ -3,7 +3,7 @@ config_version=5
 
 [application]
 config/name="Crimson Mage"
-config/version="0.2.0-menus-controls"
+config/version="0.3.0-arcane-arsenal"
 run/main_scene="res://scenes/boot/boot.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 

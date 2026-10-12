@@ -5,6 +5,14 @@ extends Resource
 @export var enemies: Array[EnemyData] = []
 @export var economy: EconomyData
 @export var stages: Array[StageData] = []
+@export var equipment: Array[EquipmentData] = []
+
+
+func get_equipment(item_id: StringName) -> EquipmentData:
+	for item in equipment:
+		if item != null and item.id == item_id:
+			return item
+	return null
 
 
 func get_stage(stage_id: StringName) -> StageData:
@@ -69,4 +77,13 @@ func validate() -> PackedStringArray:
 	for stage_id: StringName in [&"desert", &"forest", &"snow", &"grail", &"heaven", &"hell"]:
 		if not ids.has(stage_id):
 			errors.append("Missing region definition: %s" % stage_id)
+	ids.clear()
+	for item in equipment:
+		if item == null:
+			errors.append("Catalog contains missing equipment.")
+			continue
+		errors.append_array(item.validate())
+		if ids.has(item.id):
+			errors.append("Duplicate equipment ID: " + String(item.id))
+		ids[item.id] = true
 	return errors

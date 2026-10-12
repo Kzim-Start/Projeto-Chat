@@ -16,6 +16,8 @@ func _ready() -> void:
 	load_error = loaded.error
 	if load_error == OK:
 		_profile = loaded.data
+		if loaded.get("migrated", false):
+			load_error = store.save_profile(_profile)
 	elif load_error == ERR_FILE_NOT_FOUND:
 		load_error = store.save_profile(_profile)
 	# Corrupt/future files remain intact and purchases are blocked until recovery.
@@ -86,3 +88,88 @@ func _commit(next: Dictionary) -> Error:
 		_profile = next
 		profile_changed.emit()
 	return error
+
+
+func owns_equipment(id: StringName) -> bool:
+	return String(id) in _profile.owned_equipment
+
+
+func get_loadout(mage_id: StringName) -> Dictionary:
+	return _profile.loadouts.get(String(mage_id), {}).duplicate(true)
+
+
+func purchase_equipment(id: StringName) -> Error:
+	if load_error != OK:
+		return load_error
+	var item := GameManager.CATALOG.get_equipment(id)
+	if item == null:
+		return ERR_INVALID_PARAMETER
+	if owns_equipment(id):
+		return ERR_ALREADY_EXISTS
+	if get_saved_coins() < item.price:
+		return ERR_UNAUTHORIZED
+	var next := _profile.duplicate(true)
+	next.saved_coins = get_saved_coins() - item.price
+	next.owned_equipment.append(String(id))
+	return _commit(next)
+
+
+func equip(mage_id: StringName, id: StringName) -> Error:
+	if load_error != OK:
+		return load_error
+	var item := GameManager.CATALOG.get_equipment(id)
+	if item == null or GameManager.CATALOG.get_mage(mage_id) == null:
+		return ERR_INVALID_PARAMETER
+	if not is_mage_unlocked(mage_id) or not owns_equipment(id):
+		return ERR_UNAUTHORIZED
+	var outfit := get_loadout(mage_id)
+	if outfit.get(item.slot, "") == String(id):
+		return ERR_ALREADY_EXISTS
+	outfit[item.slot] = String(id)
+	var next := _profile.duplicate(true)
+	next.loadouts[String(mage_id)] = outfit
+	return _commit(next)
+
+
+func unequip(mage_id: StringName, slot: StringName) -> Error:
+	if load_error != OK:
+		return load_error
+	if not slot in EquipmentData.SLOTS or GameManager.CATALOG.get_mage(mage_id) == null:
+		return ERR_INVALID_PARAMETER
+	if not is_mage_unlocked(mage_id):
+		return ERR_UNAUTHORIZED
+	var outfit := get_loadout(mage_id)
+	if not outfit.has(String(slot)):
+		return ERR_DOES_NOT_EXIST
+	outfit.erase(String(slot))
+	var next := _profile.duplicate(true)
+	next.loadouts[String(mage_id)] = outfit
+	return _commit(next)
+
+
+func get_attack_damage(mage_id: StringName, preview_item: StringName = &"") -> float:
+	var mage := GameManager.CATALOG.get_mage(mage_id)
+	if mage == null:
+		return 0.0
+	var outfit := get_loadout(mage_id)
+	var preview := GameManager.CATALOG.get_equipment(preview_item)
+	if preview != null:
+		outfit[preview.slot] = String(preview.id)
+	var flat: float = 0.0
+	var percent: float = 0.0
+	for id in outfit.values():
+		var item := GameManager.CATALOG.get_equipment(id)
+		if item != null:
+			flat += item.damage_flat
+			percent += item.damage_percent
+	return (mage.attack_damage + flat) * (1.0 + percent)
+
+
+func get_visual_loadout(mage_id: StringName) -> Vector3i:
+	var result := Vector3i.ZERO
+	var outfit := get_loadout(mage_id)
+	for index in range(EquipmentData.SLOTS.size()):
+		var item := GameManager.CATALOG.get_equipment(outfit.get(String(EquipmentData.SLOTS[index]), ""))
+		if item != null:
+			result[index] = item.visual_tier
+	return result

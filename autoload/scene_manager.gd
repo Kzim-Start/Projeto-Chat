@@ -1,6 +1,6 @@
 extends Node
 
-enum Page { FOUNDATION, SETTINGS, MAIN_MENU, WORLD_MAP, MAGES, UPGRADES, CREDITS, LOADING, PRACTICE }
+enum Page { FOUNDATION, SETTINGS, MAIN_MENU, WORLD_MAP, MAGES, UPGRADES, CREDITS, LOADING, PRACTICE, EQUIPMENT }
 const SCENES: Dictionary[int, String] = {
 	Page.FOUNDATION: "res://scenes/menus/foundation.tscn",
 	Page.SETTINGS: "res://scenes/menus/settings.tscn",
@@ -11,11 +11,13 @@ const SCENES: Dictionary[int, String] = {
 	Page.CREDITS: "res://scenes/menus/credits.tscn",
 	Page.LOADING: "res://scenes/boot/loading.tscn",
 	Page.PRACTICE: "res://scenes/rooms/practice.tscn",
+	Page.EQUIPMENT: "res://scenes/menus/equipment.tscn",
 }
 var is_transitioning: bool = false
 var current_page: int = Page.FOUNDATION
 var settings_return_page: int = Page.MAIN_MENU
 var mage_return_page: int = Page.MAIN_MENU
+var equipment_return_page: int = Page.MAIN_MENU
 var selected_stage: StringName = &"desert"
 var selected_mage: StringName = &"ice"
 var _pending_page: int = Page.FOUNDATION
@@ -49,8 +51,10 @@ func navigate_to(page: int) -> Error:
 			return ERR_UNAUTHORIZED
 	if page == Page.SETTINGS:
 		settings_return_page = current_page
-	if page == Page.MAGES:
+	if page == Page.MAGES and current_page != Page.EQUIPMENT:
 		mage_return_page = current_page
+	if page == Page.EQUIPMENT:
+		equipment_return_page = current_page
 	var result := get_tree().change_scene_to_file(SCENES[page])
 	if result == OK:
 		_pending_page = page

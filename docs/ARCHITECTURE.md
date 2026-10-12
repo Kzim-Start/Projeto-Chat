@@ -4,7 +4,7 @@
 
 O documento possui 171 seções e, dentro delas, 14 blocos de desenvolvimento. O usuário autorizou as partes 0–10. Esta entrega prepara a foundation e a localização, sem declarar que os blocos de gameplay estão completos.
 
-## Responsabilidades
+## Responsabilidades na entrega 0–10 (histórico)
 
 | Sistema | Responsabilidade atual | Momento futuro |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ O documento possui 171 seções e, dentro delas, 14 blocos de desenvolvimento. O
 
 Os quatro gerenciadores iniciais são Autoloads. Resources descrevem dados; Nodes implementam comportamento. Componentes de combate pertencem às cenas, não aos Autoloads.
 
-## Ordem e dependências atuais
+## Ordem e dependências na entrega 0–10 (histórico)
 
 1. `SettingsManager` lê preferências usando `SettingsStore` e `LocalePolicy`, classes sem dependência de Autoload.
 2. `LocalizationManager` usa a preferência válida; na primeira abertura, detecta e salva o idioma do aparelho. Depois atualiza o `TranslationServer`.
@@ -66,3 +66,32 @@ O modo de teste (`-- --test-mode`, apenas builds debug) usa `user://tests/sessio
 - Arte, animação, áudio e dispositivos de referência para profiling.
 
 Estas decisões não bloqueiam a foundation e não serão resolvidas silenciosamente por uma mecânica inventada.
+
+## Estado atual — 0.3.0, menus e arsenal
+
+As seções acima registram a foundation. A implementação atual acrescenta `ProgressionManager` como quinto Autoload, entre GameManager e SceneManager. Boot abre MainMenu; Foundation continua disponível para verificação técnica. O fluxo é Menu → Mapa → Magos → Loading → Practice. Equipamentos pode abrir pelo menu principal ou pela seleção de mago e retorna à origem sem criar um ciclo no botão Voltar.
+
+| Componente | Responsabilidade |
+| --- | --- |
+| ProgressionManager | Saved Coins, compras, upgrades, inventário e combinações por mago |
+| ProfileStore | Validação, migração v1→v2, temporário/backup e persistência do perfil |
+| EquipmentData | ID, traduções, espaço, preço, bônus e variante visual |
+| Equipment screen | Loja, inventário, comparação, compra, equipar e remover |
+| PixelArt / MagePortrait | Sprites em camadas, cache limitado e apresentação do personagem |
+| PracticeMage / PracticeStage | Validação de controles, dano equipado e alvos sem recompensas |
+
+### Inventário e dano
+
+`owned_equipment` armazena IDs de itens; `loadouts` mapeia ID de mago para os espaços `staff`, `mantle` e `amulet`. Um item adquirido pode constar em combinações de magos diferentes, pois só o mago selecionado usa seus atributos. Equipar substitui o ID do mesmo espaço. Remover apaga a associação, sem destruir o item.
+
+Compras e mudanças de combinação montam uma cópia do perfil e só a publicam em memória após gravação bem-sucedida. Não há concessão de moeda no código de produção. O item inicial tem preço zero configurado e segue a mesma regra de aquisição única.
+
+O dano básico deriva de MageData e da combinação: `(base + flat) × (1 + percent)`. Os Resources nunca recebem os atributos modificados. Ao entrar no pátio, PracticeMage obtém o dano e as variantes visuais. Cada projétil guarda o dano do disparo. Os bônus desta entrega não alteram a nevasca experimental; o texto dos itens informa que fortalecem ataques básicos.
+
+O perfil versão 2 adiciona inventário e combinações. A leitura de v1 acrescenta campos vazios e conserva o progresso; a inicialização persiste a migração, mantendo backup. Saves de versão futura não são sobrescritos. Essa transação de arquivo não substitui testes de desligamento físico ou o banking idempotente ainda pendente.
+
+### Arte e limites
+
+PixelArt constrói sprites originais com polígonos de pixels inteiros, paletas por elemento e camadas de equipamento. Texturas dos magos são reutilizadas e limitadas a 96 entradas. Oito poses movimentam tecido e respiração; não representam a implementação de todas as animações de combate do mestre. MagePortrait adiciona altar, pedras, halo e partículas sem modificar o personagem controlável.
+
+Não foi criado um sistema de terceira moeda, recompensa no treino, run ou combate completo. Menus de compra trabalham apenas com o saldo permanente existente. Os testes e a captura equipada usam perfis isolados explicitamente identificados.

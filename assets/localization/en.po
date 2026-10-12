@@ -281,3 +281,123 @@ msgstr "HP {hp} · Shield {shield} · Mana {mana}"
 
 msgid "PRACTICE_NO_MANA"
 msgstr "Recovering mana…"
+
+msgid "MENU_EQUIPMENT"
+msgstr "Equipment"
+
+msgid "GEAR_TITLE"
+msgstr "Arcane arsenal"
+
+msgid "GEAR_SHORT"
+msgstr "Gear"
+
+msgid "GEAR_SHOP"
+msgstr "Arcane shop"
+
+msgid "GEAR_INVENTORY"
+msgstr "My equipment"
+
+msgid "GEAR_DAMAGE"
+msgstr "Damage {damage}"
+
+msgid "GEAR_EMPTY"
+msgstr "Empty"
+
+msgid "GEAR_EQUIPPED"
+msgstr "Equipped"
+
+msgid "GEAR_OWNED"
+msgstr "Owned"
+
+msgid "GEAR_FREE"
+msgstr "Starter gift"
+
+msgid "GEAR_PRICE"
+msgstr "{coins} coins"
+
+msgid "GEAR_FLAT"
+msgstr "+{value} damage"
+
+msgid "GEAR_PERCENT"
+msgstr "+{value}% damage"
+
+msgid "GEAR_COMPARISON"
+msgstr "Damage with this item: {before} → {after}"
+
+msgid "GEAR_EQUIP"
+msgstr "Equip on this mage"
+
+msgid "GEAR_UNEQUIP"
+msgstr "Unequip"
+
+msgid "GEAR_CLAIM"
+msgstr "Claim for free"
+
+msgid "GEAR_BUY"
+msgstr "Buy · {coins} coins"
+
+msgid "GEAR_EMPTY_INVENTORY"
+msgstr "Your inventory is empty"
+
+msgid "GEAR_STARTER_HINT"
+msgstr "Claim your free starter charm in the shop."
+
+msgid "GEAR_HELP"
+msgstr "Permanent items. Each mage keeps a loadout; one item per slot."
+
+msgid "GEAR_BOUGHT"
+msgstr "Item acquired! Select Equip to use its bonus."
+
+msgid "GEAR_EQUIP_SUCCESS"
+msgstr "Equipped. The bonus applies to attacks when you enter practice."
+
+msgid "GEAR_REMOVED"
+msgstr "Item removed. It remains in your inventory."
+
+msgid "SLOT_STAFF"
+msgstr "Staff"
+
+msgid "SLOT_MANTLE"
+msgstr "Mantle"
+
+msgid "SLOT_AMULET"
+msgstr "Amulet"
+
+msgid "ITEM_APPRENTICE"
+msgstr "Apprentice Charm"
+
+msgid "ITEM_APPRENTICE_DESC"
+msgstr "A spark to begin your journey. Claim once, equip it and test the damage."
+
+msgid "ITEM_RUNIC"
+msgstr "Runic Staff"
+
+msgid "ITEM_RUNIC_DESC"
+msgstr "Runes channel energy through the crystal, strengthening basic attacks."
+
+msgid "ITEM_EMBROIDERED"
+msgstr "Arcanist Mantle"
+
+msgid "ITEM_EMBROIDERED_DESC"
+msgstr "Golden embroidery amplifies the power of basic attacks."
+
+msgid "ITEM_MOON"
+msgstr "Moon Pendant"
+
+msgid "ITEM_MOON_DESC"
+msgstr "A carved moonstone combines direct power and damage amplification."
+
+msgid "ITEM_ECLIPSE"
+msgstr "Eclipse Staff"
+
+msgid "ITEM_ECLIPSE_DESC"
+msgstr "Twin golden arcs stabilize a core of concentrated magic."
+
+msgid "ITEM_ASTRAL"
+msgstr "Astral Mantle"
+
+msgid "ITEM_ASTRAL_DESC"
+msgstr "Enchanted thread and pauldrons channel more power into every basic attack."
+
+msgid "GEAR_PREVIEW_FIXTURE"
+msgstr "Test preview · simulated balance and purchases in an isolated profile."

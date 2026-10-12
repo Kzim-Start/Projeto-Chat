@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EquipmentData" load_steps=2 format=3]
+[ext_resource type="Script" path="res://resources/equipment_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = &"runic_staff"
+name_key = &"ITEM_RUNIC"
+description_key = &"ITEM_RUNIC_DESC"
+slot = "staff"
+price = 120
+damage_flat = 0.25
+visual_tier = 1

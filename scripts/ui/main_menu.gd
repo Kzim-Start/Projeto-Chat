@@ -26,7 +26,7 @@ func _ready() -> void:
 	var gap := Control.new()
 	gap.custom_minimum_size.y = 0
 	column.add_child(gap)
-	var entries := [["MENU_PLAY", SceneManager.Page.WORLD_MAP, "Play"], ["MENU_MAGES", SceneManager.Page.MAGES, "Mages"], ["MENU_UPGRADES", SceneManager.Page.UPGRADES, "Upgrades"], ["MENU_SETTINGS", SceneManager.Page.SETTINGS, "Settings"], ["MENU_CREDITS", SceneManager.Page.CREDITS, "Credits"]]
+	var entries := [["MENU_PLAY", SceneManager.Page.WORLD_MAP, "Play"], ["MENU_MAGES", SceneManager.Page.MAGES, "Mages"], ["MENU_EQUIPMENT", SceneManager.Page.EQUIPMENT, "Equipment"], ["MENU_UPGRADES", SceneManager.Page.UPGRADES, "Upgrades"], ["MENU_SETTINGS", SceneManager.Page.SETTINGS, "Settings"], ["MENU_CREDITS", SceneManager.Page.CREDITS, "Credits"]]
 	for entry in entries:
 		var page := int(entry[1])
 		var item := MenuShell.button(entry[0], func() -> void: SceneManager.navigate_to(page))

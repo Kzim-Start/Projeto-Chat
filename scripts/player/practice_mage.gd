@@ -8,6 +8,8 @@ signal mana_empty
 
 const TUNING: ControlTuning = preload("res://data/controls.tres")
 var definition: MageData
+var attack_damage: float = 1.0
+var visual_loadout := Vector3i.ZERO
 var movement := Vector2.ZERO
 var facing := Vector2.RIGHT
 var aiming := Vector2.RIGHT
@@ -30,6 +32,8 @@ func _ready() -> void:
 	if definition == null:
 		definition = GameManager.CATALOG.get_mage(SceneManager.selected_mage)
 	mana = definition.max_mana
+	attack_damage = ProgressionManager.get_attack_damage(definition.id)
+	visual_loadout = ProgressionManager.get_visual_loadout(definition.id)
 
 
 func _physics_process(delta: float) -> void:
@@ -85,10 +89,10 @@ func _draw() -> void:
 	if definition == null:
 		return
 	for index in range(_trail.size()):
-		draw_texture_rect(PixelArt.mage(definition.element), Rect2(_trail[index] - position - Vector2(40, 76), Vector2(80, 96)), false, Color(0.58, 0.86, 1, 0.08 + index * 0.03))
+		draw_texture_rect(PixelArt.mage(definition.element,0,visual_loadout), Rect2(_trail[index] - position - Vector2(48, 94), PixelArt.SIZE), false, Color(0.58, 0.86, 1, 0.08 + index * 0.03))
 	draw_ellipse_shadow()
-	var frame := int(_time * (8.0 if movement.length_squared() > 0 else 4.0)) % 4
-	draw_texture_rect(PixelArt.mage(definition.element, frame), Rect2(-40, -76, 80, 96), false)
+	var frame := int(_time * (10.0 if movement.length_squared() > 0 else 6.0)) % 8
+	draw_texture_rect(PixelArt.mage(definition.element,frame,visual_loadout), Rect2(-48,-94,96,112), false)
 	draw_arc(Vector2(0, 8), 24, 0, TAU, 24, Color(0.46, 0.75, 0.86, 0.35), 2)
 
 
